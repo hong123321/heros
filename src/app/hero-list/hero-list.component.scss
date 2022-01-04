@@ -1,0 +1,15 @@
+.panel{
+    .panel-body{
+        h1{
+            text-align: center;
+        }
+        ul{
+            li{
+                .selectedHero{
+                    color: red;
+                }
+            }
+        }
+    }
+   
+}

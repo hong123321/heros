@@ -1,0 +1,11 @@
+<div class="panel">
+      <div class="panel-body">
+            <h1>list</h1>
+            <ul class="heroes" *ngFor="let hero of heros" >
+                <li  (click)="onSelect(hero)" class="selected">
+                  <span class="badge" >{{hero.id}}</span> {{hero.name}}
+                </li>
+            </ul>
+      </div>
+</div>
+
