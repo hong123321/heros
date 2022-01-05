@@ -1,1 +1,9 @@
-<p>hero-detail works!</p>
+<h2>{{hero.name}} Detail</h2>
+<div><span>id: {{hero.id}}</span></div>
+<div>
+        <label>Name:</label>
+        <input   [(ngModel)]="hero.name">
+        
+        <div><button type="button" class="btn btn-default" (click)="handleBack()">Go Back</button></div>
+        <div><button type="button" class="btn btn-default" (click)="save()">Save</button></div>
+</div>

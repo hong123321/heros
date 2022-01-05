@@ -1,11 +1,16 @@
 <div class="panel">
       <div class="panel-body">
-            <h1>list</h1>
+            <h1>List My Hero</h1>
+            <div class="form-group">
+                  <input #hero>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="addhero(hero.value) ; hero.value=''">Create Heros</button>
             <ul class="heroes" *ngFor="let hero of heros" >
-                <li  (click)="onSelect(hero)" class="selected">
-                  <span class="badge" >{{hero.id}}</span> {{hero.name}}
-                </li>
+                <a  routerLink="/detail/{{hero.id}}">
+                        <span  class="badge" >{{hero.id}} {{hero.name}}</span>
+                </a>
             </ul>
+
       </div>
 </div>
 
