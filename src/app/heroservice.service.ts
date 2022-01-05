@@ -25,6 +25,11 @@ export class HeroserviceService {
   //   return of(HEROES.find(hr=>hr.id===id))
     
   // }
+  sendHeroById(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get<Hero>(url)
+  }
+
   //save hero
   updateHero(hero:Hero):Observable<any>{
     return this.http.put(this.heroesUrl, hero, this.httpOptions)
@@ -32,6 +37,14 @@ export class HeroserviceService {
   //add hero
   addHeros(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions)
+  }
+  //delete hero
+  handleDelete(hero:Hero | number):Observable<Hero>{
+    const id = typeof hero ==='number' ? hero : hero.id
+    const url = `${this.heroesUrl}/${id}`
+    return this.http.delete<Hero>(url, this.httpOptions)
+      
+    
   }
 }
 

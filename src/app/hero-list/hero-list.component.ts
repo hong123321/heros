@@ -24,9 +24,11 @@ export class HeroListComponent implements OnInit {
       return;
     }
     this.dataHero.addHeros({ name } as unknown  as Hero).subscribe(data=>this.heros.push(data)
-    )
-  
-    
+    )  
+  }
+  delete(hero:Hero){
+    this.heros = this.heros.filter(h=>h !=hero)
+    this.dataHero.handleDelete(hero)
   }
 
 }

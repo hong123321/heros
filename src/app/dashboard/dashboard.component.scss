@@ -1,5 +1,27 @@
-.listHero{
-        h1{
-            text-align: center;
+.panel{
+    .listHero{
+        h1{text-align: center;}
+          .row{
+              margin-top: 40px;
+            .block{
+                background-color:rgba(3, 61, 61, 0.692);
+                height: 70px;
+                width: 190px;
+                float: inherit;
+                a{
+                    text-decoration: none    ;
+                h2{
+                     text-align: center;
+                     color: #fff;
+                     font-size: 20px;
+                    }
+                }
+            }
+            .block:hover{
+                background-color: rgb(202, 202, 202);
+                
+            }
+          }
+          
         }
     }
