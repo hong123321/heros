@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 //data sever
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { SearchheroComponent } from './searchhero/searchhero.component';
 const routes:Routes=[
   {
     path: '', 
@@ -36,7 +37,8 @@ const routes:Routes=[
     AppComponent,
     DashboardComponent,
     HeroDetailComponent,
-    HeroListComponent
+    HeroListComponent,
+    SearchheroComponent
   ],
   imports: [
     BrowserModule,

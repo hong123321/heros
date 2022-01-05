@@ -42,9 +42,15 @@ export class HeroserviceService {
   handleDelete(hero:Hero | number):Observable<Hero>{
     const id = typeof hero ==='number' ? hero : hero.id
     const url = `${this.heroesUrl}/${id}`
-    return this.http.delete<Hero>(url, this.httpOptions)
-      
-    
+    return this.http.delete<Hero>(url, this.httpOptions) 
+  }
+  //search hero
+  handleSearch(term:string):Observable<Hero[]>{
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`)
   }
 }
 
