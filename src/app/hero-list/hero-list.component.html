@@ -1,17 +1,22 @@
 <div class="panel">
-      <div class="panel-body">
-            <h1>List My Hero</h1>
-            <div class="form-group">
-                  <input #hero>
-              </div>
-              <button type="submit" class="btn btn-primary" (click)="addhero(hero.value) ; hero.value=''">Create Heros</button>
-            <ul class="heroes" *ngFor="let hero of heros" > 
-            <a routerLink="/detail/{{hero.id}}">
-                  <span class="badge" >{{hero.id}}</span>
-                  <span class="nameHero"> {{hero.name}}</span></a>
-                  <span><button (click)="delete(hero)">X</button></span>
-            </ul>
-
-      </div>
+  <div class="panel-body">
+    <h1>List My Hero</h1>
+    <div class="form-group">
+      <input #hero />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="addhero(hero.value); hero.value = ''"
+    >
+      Create Heros
+    </button>
+    <ul class="heroes" *ngFor="let hero of heros">
+      <a routerLink="/detail/{{ hero.id }}">
+        <span class="badge">{{ hero.id }}</span>
+        <span class="nameHero"> {{ hero.name }}</span></a
+      >
+      <span><button (click)="delete(hero)">X</button></span>
+    </ul>
+  </div>
 </div>
-

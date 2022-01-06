@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './model/heros';
-import { Observable,of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -17,13 +17,13 @@ export class HeroserviceService {
 
   /** GET heroes from the server */
   sendeHero(): Observable<Hero[]> {
-  return this.http.get<Hero[]>(this.heroesUrl)
-  // return of(HEROES)
-}
+    return this.http.get<Hero[]>(this.heroesUrl)
+    // return of(HEROES)
+  }
 
   // sendIdHero(id:any):Observable<any>{
   //   return of(HEROES.find(hr=>hr.id===id))
-    
+
   // }
   sendHeroById(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
@@ -31,7 +31,7 @@ export class HeroserviceService {
   }
 
   //save hero
-  updateHero(hero:Hero):Observable<any>{
+  updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions)
   }
   //add hero
@@ -39,13 +39,13 @@ export class HeroserviceService {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions)
   }
   //delete hero
-  handleDelete(hero:Hero | number):Observable<Hero>{
-    const id = typeof hero ==='number' ? hero : hero.id
+  handleDelete(hero: Hero | number): Observable<Hero> {
+    const id = typeof hero === 'number' ? hero : hero.id
     const url = `${this.heroesUrl}/${id}`
-    return this.http.delete<Hero>(url, this.httpOptions) 
+    return this.http.delete<Hero>(url, this.httpOptions)
   }
   //search hero
-  handleSearch(term:string):Observable<Hero[]>{
+  handleSearch(term: string): Observable<Hero[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);

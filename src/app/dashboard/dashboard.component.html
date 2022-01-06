@@ -1,14 +1,15 @@
 <div class="panel">
-        <div class="panel-body listHero"> 
-              <h1>Top Hero</h1>
-                   <div class="row" >
-                         <div class="col-md-3" *ngFor="let hero of heros">
-                             <div class="block"> <a routerLink="/detail/{{hero.id}}"><h2 class="name">{{hero.name}}</h2></a></div>
-                         </div>
-                   </div>
-            
-        </div>
-        <app-searchhero></app-searchhero>
+  <div class="panel-body listHero">
+    <h1>Top Hero</h1>
+    <div class="row">
+      <div class="col-md-3" *ngFor="let hero of heros">
+        <a routerLink="/detail/{{ hero.id }}">
+          <div class="block">
+            <h2 class="name">{{ hero.name }}</h2>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div><app-searchhero></app-searchhero></div>
 </div>
-
-

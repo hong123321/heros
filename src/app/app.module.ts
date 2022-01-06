@@ -6,30 +6,33 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroListComponent } from './hero-list/hero-list.component';
-
 import { HttpClientModule } from '@angular/common/http';
-
 //data sever
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { SearchheroComponent } from './searchhero/searchhero.component';
-const routes:Routes=[
+import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
+const routes: Routes = [
   {
-    path: '', 
-    redirectTo: '/dashboard', 
+    path: '',
+    redirectTo: '/dashboard',
     pathMatch: 'full'
   },
   {
-    path: 'dashboard', 
-    component: DashboardComponent
+    path: 'dashboard',
+    component: DashboardComponent,
   },
   {
-    path: 'detail/:id', 
+    path: 'detail/:id',
     component: HeroDetailComponent
   },
   {
-    path:'listhero',
-    component:HeroListComponent
+    path: 'listhero',
+    component: HeroListComponent
+  },
+  { path: '**', 
+    pathMatch: 'full',
+    component: PageNotFoundComponentComponent 
   }
 ]
 @NgModule({
@@ -38,7 +41,8 @@ const routes:Routes=[
     DashboardComponent,
     HeroDetailComponent,
     HeroListComponent,
-    SearchheroComponent
+    SearchheroComponent,
+    PageNotFoundComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +53,9 @@ const routes:Routes=[
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
-  InMemoryDataService, { dataEncapsulation: false }
-)
-      
+      InMemoryDataService, { dataEncapsulation: false }
+    )
+
   ],
   providers: [],
   bootstrap: [AppComponent]

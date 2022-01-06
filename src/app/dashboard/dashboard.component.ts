@@ -7,18 +7,16 @@ import { Hero } from '../model/heros';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  title:string=''
-  heros:Hero[]=[]
-  constructor(private hero:HeroserviceService) {
-    this.title="Tour of Hero"
-   }
+  title: string = ''
+  heros: Hero[] = [];
+  constructor(private hero: HeroserviceService) {
+    this.title = "Tour of Hero";
+  }
 
   ngOnInit(): void {
-    this.getMyHero()
+    this.getMyHero();
   }
-  getMyHero(): void{
-    this.hero.sendeHero().subscribe(myHero => this.heros=myHero.slice(0,4))
-    console.log(this.heros);
-    
+  getMyHero(): void {
+    this.hero.sendeHero().subscribe(myHero => this.heros = myHero.slice(0, 4));
   }
 }

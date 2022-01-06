@@ -11,11 +11,10 @@ import { Observable, Subject } from 'rxjs';
   styleUrls: ['./searchhero.component.scss']
 })
 export class SearchheroComponent implements OnInit {
- 
   heroes!: Observable<Hero[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private herosv:HeroserviceService) { }
+  constructor(private herosv: HeroserviceService) { }
 
   ngOnInit(): void {
     this.heroes = this.searchTerms.pipe(
@@ -28,12 +27,8 @@ export class SearchheroComponent implements OnInit {
       // switch to new search observable each time the term changes
       switchMap((term: string) => this.herosv.handleSearch(term)),
     )
-  
   }
-  search(term:string):void{
-    console.log(term);
+  search(term: string): void {
     this.searchTerms.next(term);
-    
   }
-
 }

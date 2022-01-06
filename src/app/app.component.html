@@ -1,13 +1,16 @@
 <div class="container">
   <div class="panel">
-      <div class="panel-heading">
-            <h1>{{title}}</h1>
-              <button type="button" class="btn btn-default" routerLink="/dashboard">Dasboard</button>
-              <button type="button" class="btn btn-default" routerLink="/listhero">Heros</button>
-              
-      </div>
-      <div class="panel-body">
-        <router-outlet></router-outlet>
-      </div>
+    <div class="panel-heading">
+      <h1>{{ title }}</h1>
+      <button type="button" class="btn btn-default" routerLink="/dashboard">
+        Dasboard
+      </button>
+      <button type="button" class="btn btn-default" routerLink="./listhero">
+        Heros
+      </button>
+    </div>
+    <div class="panel-body">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

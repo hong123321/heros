@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Hero} from '../model/heros'
+import { Hero } from '../model/heros'
 import { HeroserviceService } from '../heroservice.service';
 
 @Component({
@@ -8,27 +8,26 @@ import { HeroserviceService } from '../heroservice.service';
   styleUrls: ['./hero-list.component.scss']
 })
 export class HeroListComponent implements OnInit {
-  heros!:Hero[]
- 
-  constructor(public dataHero:HeroserviceService, ) { }
+  heros!: Hero[];
+
+  constructor(public dataHero: HeroserviceService,) { }
 
   ngOnInit(): void {
-    this.getHero()
+    this.getHero();
   }
-  getHero(){
-    this.dataHero.sendeHero().subscribe(hero=>this.heros=hero)
+  getHero() {
+    this.dataHero.sendeHero().subscribe(hero => this.heros = hero)
   }
-  addhero(name:string){
+  addhero(name: string) {
     name = name.trim();
-    if(!name){
+    if (!name) {
       return;
     }
-    this.dataHero.addHeros({ name } as unknown  as Hero).subscribe(data=>this.heros.push(data)
-    )  
+    this.dataHero.addHeros({ name } as unknown as Hero).subscribe(data => this.heros.push(data)
+    );
   }
-  delete(hero:Hero){
-    this.heros = this.heros.filter(h=>h !=hero)
-    this.dataHero.handleDelete(hero)
+  delete(hero: Hero) {
+    this.heros = this.heros.filter(h => h != hero);
+    this.dataHero.handleDelete(hero);
   }
-
 }
